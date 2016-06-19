@@ -1,0 +1,1 @@
+export const DRAG_SET_DATA = 'DRAG_SET_DATA';

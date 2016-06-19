@@ -1,0 +1,77 @@
+{
+
+    "appName": "react",
+
+    "port": 3500,
+
+    "specialization": {
+
+    },
+
+    "view engines": {
+        "html": {
+            "name": "ejs-mate",
+            "module": "ejs-mate"
+        }
+    },
+
+    "express": {
+        "view engine": "html"
+    },
+
+    "middleware": {
+
+        "app": {
+            "enabled": true,
+            "priority": 119,
+            "module": {
+                "name": "path:./app/index"
+            }
+        },
+
+        "session": {
+            "enabled": true,
+            "priority": 100,
+            "module": {
+                "name": "express-session",
+                "arguments": [
+                    {
+                        "key": "",
+                        "secret": "api app",
+                        "name": "connect.magick",
+                        "cookie": {
+                            "path": "/",
+                            "httpOnly": true,
+                            "maxAge": null
+                        },
+                        "resave": true,
+                        "saveUninitialized": true,
+                        "proxy": null
+                    }
+                ]
+            }
+        },
+
+        "cookieParser": {
+            "enabled": true,
+            "priority": 90,
+            "module": {
+                "name": "cookie-parser",
+                "arguments": [ "api**" ]
+            }
+        },
+
+        "compress": {
+            "enabled": true,
+            "priority": 10,
+            "module": "compression"
+        },
+
+        "router": {
+            "module": {
+                "arguments": [{ "directory": "path:./controllers" }]
+            }
+        }
+
+    }
+}
